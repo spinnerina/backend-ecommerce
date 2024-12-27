@@ -1,0 +1,23 @@
+# Laravel ignores
+/src/node_modules
+/src/public/hot
+/src/public/storage
+/src/storage/*.key
+/src/vendor
+/src/.env
+/src/.env.backup
+/src/.phpunit.result.cache
+/src/Homestead.json
+/src/Homestead.yaml
+/src/npm-debug.log
+/src/yarn-error.log
+/src/.idea
+/src/.vscode
+
+# Docker ignores
+docker-compose.override.yml
+
+# System files
+*.log
+.DS_Store
+Thumbs.db
