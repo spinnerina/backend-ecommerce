@@ -3,16 +3,25 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //Delete stored images
+        if (file_exists(public_path('storage/products'))) {
+            \File::deleteDirectory(public_path('storage/products'));
+        }
+
+        //Create the directory for the images
+        Storage::makeDirectory('public/products');
+
+        //Call the seeder to add categories and products
+        $this->call([
+            categorySeeder::class,
+            productsSeeder::class,
+            userSeeder::class,
+        ]);
     }
 }
