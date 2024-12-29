@@ -4,8 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
-use App\Models\products;
-use App\Models\category;
+use App\Models\Products;
+use App\Models\Category;
 
 class FetchProducts extends Command
 {
@@ -31,13 +31,13 @@ class FetchProducts extends Command
 
             foreach ($products as $productData) {
                 //Get a random category ID
-                $randomCategoryId = category::inRandomOrder()->value('id');
+                $randomCategoryId = Category::inRandomOrder()->value('id');
                 if(!$randomCategoryId) {
                     $this->error('No categories found in the database. Please run the seeder to add categories.');
                     return 1;
                 }
                 //Save the product to the database
-                products::Create(
+                Products::Create(
                     [
                         'name' => $productData['title'],
                         'description' => $productData['description'],

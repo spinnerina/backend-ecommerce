@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\orderItem;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
-class orderItemController extends Controller
+class OrderItemController extends Controller
 {
     /**
      * Display a listing of the resource.

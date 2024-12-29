@@ -3,24 +3,19 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\category;
-use App\Models\products;
+use App\Models\Category;
+use App\Models\Products;
 
-class productsSeeder extends Seeder
+class ProductsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         //Get all categories
-        $categories = category::all();
+        $categories = Category::all();
 
         //Create 3 products for each category
         $categories->each(function ($category) {
-            products::factory()->count(3)->create([
+            Products::factory()->count(3)->create([
                 'category_id' => $category->id,
             ]);
         });

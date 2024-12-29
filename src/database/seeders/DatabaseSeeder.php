@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
 
         //Call the seeder to add categories and products
         $this->call([
-            categorySeeder::class,
-            productsSeeder::class,
-            userSeeder::class,
+            CategorySeeder::class,
+            ProductsSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
