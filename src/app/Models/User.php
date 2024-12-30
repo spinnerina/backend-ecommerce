@@ -11,6 +11,19 @@ use App\Models\Order;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+    /**
+     * @OA\Schema(
+     *  schema="User",
+     *  title="User",
+     *  required={"name", "email", "password"},
+     *  @OA\Property(property="name", type="string", example="John Doe"),
+     *  @OA\Property(property="email", type="string", format="email", example="admin@example.com"),
+     *  @OA\Property(property="password", type="string", format="password", example="password"),
+     *  @OA\Property(property="email_verified_at", type="string", format="date-time", example="2021-01-01 00:00:00"),
+     *  @OA\Property(property="created_at", type="string", format="date-time", example="2021-01-01 00:00:00"),
+     *  @OA\Property(property="updated_at", type="string", format="date-time", example="2021-01-01 00:00:00"),
+     * )
+     */
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [

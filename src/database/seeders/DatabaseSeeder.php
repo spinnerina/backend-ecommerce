@@ -9,9 +9,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        //Delete stored images
-        if (file_exists(public_path('storage/products'))) {
-            \File::deleteDirectory(public_path('storage/products'));
+        //Delete the directory for the images if it exists
+        if (Storage::exists('public/products')){
+            Storage::deleteDirectory('public/products');
         }
 
         //Create the directory for the images

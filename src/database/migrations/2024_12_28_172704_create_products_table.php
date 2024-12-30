@@ -19,10 +19,11 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2);
             $table->integer('stock');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')
                   ->references('id')
-                  ->on('category');
+                  ->on('category')
+                  ->onDelete('set null');
             $table->string('image')->nullable();
         });
     }

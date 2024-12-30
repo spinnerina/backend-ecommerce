@@ -20,7 +20,7 @@ class CreateOrderTable extends Migration
                   ->references('id')
                   ->on('users');
             $table->decimal('total_amount', 8, 2);
-            $table->boolean('status')->default(1);
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

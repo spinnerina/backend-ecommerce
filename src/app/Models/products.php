@@ -9,6 +9,24 @@ use App\Models\OrderItem;
 
 class Products extends Model
 {
+    /**
+    * @OA\Schema(
+    *    schema="Product",
+    *    type="object",
+    *    title="Product",
+    *    required={"name", "description", "price", "stock", "category_id", "image"},
+    *    properties={
+    *       @OA\Property(property="id", type="integer", example="1"),
+    *       @OA\Property(property="name", type="string", example="Product 1"),
+    *       @OA\Property(property="description", type="string", example="Description of product 1"),
+    *       @OA\Property(property="price", type="number", format="float", example="10.5"),
+    *       @OA\Property(property="stock", type="integer", example="10"),
+    *       @OA\Property(property="category_id", type="integer", example="1"),
+    *       @OA\Property(property="image", type="string", format="binary", description="Product image file"),
+    *       @OA\Property(property="category", type="object", ref="#/components/schemas/Category"),
+    *   }
+    * )
+    */
     use HasFactory;
 
     //Table Name
